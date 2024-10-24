@@ -49,12 +49,35 @@ jobs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
 
+  update:
+    needs: meta
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: update
+        shell: bash
+        run: |
+          mkdir -p ./update
+          rsync -av --exclude='MaaCommonAssets' ./assets/ ./update/
+
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: update
+          path: "update"
+
   windows:
     needs: meta
     runs-on: windows-latest
     strategy:
       matrix:
-        arch: [aarch64, x86_64]
+        arch: [ aarch64, x86_64 ]
       fail-fast: false
 
     steps:
@@ -71,14 +94,26 @@ jobs:
           out-file-path: "deps"
           extract: true
 
+      - name: Download MFAWPF
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: SweetSmellFox/MFAWPF
+          filename: MFAWPF*
+          latest: true
+          out-file-path: MFA
+          extract: true
+
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
+          cp ./MFA/MFAWPF.exe ./install
+          # url项示例  https://github.com/SweetSmellFox/MFAWPF
+          jq --arg version_name "MAARY" --arg url ""https://github.com/Aries-Dawn/Ashes_of_the_Kingdom"" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./install/interface.json
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaXXX-win-${{ matrix.arch }}
+          name: MAAxxx-win-${{ matrix.arch }}
           path: "install"
 
   ubuntu:
@@ -86,7 +121,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [aarch64, x86_64]
+        arch: [ aarch64, x86_64 ]
       fail-fast: false
 
     steps:
@@ -110,7 +145,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaXXX-linux-${{ matrix.arch }}
+          name: MAAxxx-linux-${{ matrix.arch }}
           path: "install"
 
   macos:
@@ -118,7 +153,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        arch: [aarch64, x86_64]
+        arch: [ aarch64, x86_64 ]
       fail-fast: false
 
     steps:
@@ -142,7 +177,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaXXX-macos-${{ matrix.arch }}
+          name: MAAxxx-macos-${{ matrix.arch }}
           path: "install"
 
   android:
@@ -150,7 +185,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        arch: [aarch64, x86_64]
+        arch: [ aarch64, x86_64 ]
       fail-fast: false
 
     steps:
@@ -164,6 +199,7 @@ jobs:
           repository: MaaXYZ/MaaFramework
           fileName: "MAA-android-${{ matrix.arch }}*"
           latest: true
+          
           out-file-path: "deps"
           extract: true
 
@@ -174,12 +210,12 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MaaXXX-android-${{ matrix.arch }}
+          name: MAAxxx-android-${{ matrix.arch }}
           path: "install"
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, windows, ubuntu, macos, android]
+    needs: [ meta, windows, ubuntu, macos, android ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
