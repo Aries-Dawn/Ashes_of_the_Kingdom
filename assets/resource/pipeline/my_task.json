@@ -12,11 +12,11 @@
         "template": "6story.png",
         "action": "Click",
         "next": [
-            "Success"
-        ],
-        "interrupt": [
             "find6_24",
             "beginScript"
+        ],
+        "interrupt": [
+            "Success"
         ]
     },
     "find6_24": {
@@ -41,6 +41,15 @@
         ],
         "duration": 1000,
         "post_wait_freezes": 500
+    },
+    "Fight_6_24": {
+        "next": [
+            "beginScript",
+            "goIn"
+        ],
+        "interrupt": [
+            "Success"
+        ]
     },
     "beginScript": {
         "is_sub": true,

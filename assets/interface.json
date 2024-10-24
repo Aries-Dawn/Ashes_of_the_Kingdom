@@ -24,32 +24,15 @@
     "task": [
         {
             "name": "开始6-24",
-            "entry": "click_6",
+            "entry": "Fight_6_24",
             "option": [
-                "任务选项1"
+                "进入第六章，拖动到6-24出现在屏幕中"
             ]
         }
     ],
     "option": {
-        "任务选项1": {
-            "cases": [
-                {
-                    "name": "文本1",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本1"
-                        }
-                    }
-                },
-                {
-                    "name": "文本2",
-                    "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本2"
-                        }
-                    }
-                }
-            ]
+        "进入第六章，拖动到6-24出现在屏幕中": {
+            "cases": []
         }
     }
 }
