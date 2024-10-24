@@ -1,5 +1,160 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+    "story-track": {
+        "recognition": "TemplateMatch",
+        "template": "story.png",
+        "action": "Click",
+        "next": [
+            "click_6"
+        ]
+    },
+    "click_6": {
+        "recognition": "TemplateMatch",
+        "template": "6story.png",
+        "action": "Click",
+        "next": [
+            "Success"
+        ],
+        "interrupt": [
+            "find6_24",
+            "beginScript"
+        ]
+    },
+    "find6_24": {
+        "enabled": true,
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "template": "24.png",
+        "inverse": true,
+        "threshold": 0.88,
+        "action": "Swipe",
+        "begin": [
+            297,
+            277,
+            0,
+            0
+        ],
+        "end": [
+            597,
+            600,
+            0,
+            0
+        ],
+        "duration": 1000,
+        "post_wait_freezes": 500
+    },
+    "beginScript": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "template": "24.png",
+        "threshold": 0.88,
+        "action": "Click",
+        "next": [
+            "fight",
+            "goIn"
+        ]
+    },
+    "fight": {
+        "recognition": "TemplateMatch",
+        "template": "go_fight.png",
+        "action": "Click",
+        "next": [
+            "goIn"
+        ]
+    },
+    "goIn": {
+        "recognition": "TemplateMatch",
+        "template": "begin6_24.png",
+        "action": "Click",
+        "next": [
+            "FightAndMovingForward"
+        ]
+    },
+    "FightAndMovingForward": {
+        "next": [
+            "end6_24"
+        ],
+        "interrupt": [
+            "fight_enemy",
+            "MovingForward"
+        ]
+    },
+    "fight_enemy": {
+        "recognition": "TemplateMatch",
+        "template": "enemy_flow.png",
+        "action": "Click",
+        "next": [
+            "beginFight"
+        ]
+    },
+    "beginFight": {
+        "pre_delay": 500,
+        "recognition": "TemplateMatch",
+        "template": "beginFight.png",
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "timeout": 600000,
+        "next": [
+            "win",
+            "beginFight"
+        ]
+    },
+    "win": {
+        "recognition": "TemplateMatch",
+        "template": "win.png",
+        "action": "Click",
+        "target": [
+            253,
+            1112,
+            211,
+            39
+        ],
+        "timeout": 600000,
+        "post_delay": 200,
+        "next": [
+            "box",
+            "beginFight"
+        ]
+    },
+    "box": {
+        "recognition": "TemplateMatch",
+        "template": "smallBox.png",
+        "action": "Click",
+        "next": "waitAndClick"
+    },
+    "waitAndClick": {
+        "pre_delay": 700,
+        "action": "Click",
+        "target": [
+            58,
+            1065,
+            630,
+            196
+        ]
+    },
+    "MovingForward": {
+        "recognition": "TemplateMatch",
+        "template": "forward.png",
+        "action": "Click"
+    },
+    "end6_24": {
+        "recognition": "TemplateMatch",
+        "template": "outside.png",
+        "action": "Click",
+        "next": [
+            "Success"
+        ],
+        "post_delay": 1000
+    },
+    "Success": {
+        "recognition": "TemplateMatch",
+        "template": "actionSuccess.png",
+        "action": "Click",
+        "target": [
+            58,
+            758,
+            589,
+            449
+        ],
+        "post_delay": 3000
+    }
 }

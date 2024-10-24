@@ -1,0 +1,13 @@
+{
+    "controller": {
+        "name": "安卓端",
+        "type": "Adb"
+    },
+    "resource": "官服",
+    "task": [
+        {
+            "name": "普通任务",
+            "option": []
+        }
+    ]
+}
