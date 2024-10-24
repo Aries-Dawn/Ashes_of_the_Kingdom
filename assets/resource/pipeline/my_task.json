@@ -44,15 +44,26 @@
     },
     "Fight_6_24": {
         "next": [
-            "beginScript",
-            "goIn"
+            "Empty"
         ],
         "interrupt": [
+            "beginScript",
+            "goIn",
             "Success"
         ]
     },
+    "Empty": {
+        "recognition": "TemplateMatch",
+        "template": "buy_power.png",
+        "action": "Click",
+        "target": [
+            655,
+            290,
+            34,
+            35
+        ]
+    },
     "beginScript": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "template": "24.png",
         "threshold": 0.88,
