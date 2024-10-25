@@ -1,6 +1,6 @@
 {
     "name": "MaaRY",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "custom_title": "MAA鸢",
     "default_controller": "adb",
     "controller": [
