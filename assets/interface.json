@@ -28,7 +28,8 @@
     "task": [
         {
             "name": "开始6-24",
-            "entry": "Fight_6_24"
+            "entry": "story-track",
+            "doc": "进入游戏主界面即可。"
         }
     ]
 }

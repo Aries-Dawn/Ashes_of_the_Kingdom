@@ -12,16 +12,17 @@
         "template": "6story.png",
         "action": "Click",
         "next": [
-            "find6_24",
-            "beginScript"
+            "Empty"
         ],
         "interrupt": [
+            "find6_24",
+            "beginScript",
+            "Fight_6_24",
             "Success"
         ]
     },
     "find6_24": {
         "enabled": true,
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "template": "24.png",
         "inverse": true,
