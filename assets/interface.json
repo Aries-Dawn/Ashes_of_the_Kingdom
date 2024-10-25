@@ -1,4 +1,8 @@
 {
+    "name": "MaaRY",
+    "version": "1.0.4",
+    "custom_title": "MAA鸢",
+    "default_controller": "adb",
     "controller": [
         {
             "name": "安卓端",
