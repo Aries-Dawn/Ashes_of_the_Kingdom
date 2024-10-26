@@ -2,8 +2,7 @@
     "6_24fightEntry": {
         "next": [
             "story-track",
-            "click_6",
-            "find6_24"
+            "click_6"
         ]
     },
     "story-track": {
@@ -22,9 +21,7 @@
             "Empty"
         ],
         "interrupt": [
-            "Fight_6_24",
-            "find6_24",
-            "Success"
+            "Fight_6_24"
         ]
     },
     "find6_24": {
@@ -54,6 +51,7 @@
             "Empty"
         ],
         "interrupt": [
+            "find6_24",
             "beginScript",
             "goIn",
             "Success"
