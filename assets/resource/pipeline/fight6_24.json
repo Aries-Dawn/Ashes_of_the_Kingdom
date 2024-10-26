@@ -1,4 +1,11 @@
 {
+    "6_24fightEntry": {
+        "next": [
+            "story-track",
+            "click_6",
+            "find6_24"
+        ]
+    },
     "story-track": {
         "recognition": "TemplateMatch",
         "template": "story.png",
@@ -15,10 +22,10 @@
             "Empty"
         ],
         "interrupt": [
-            "find6_24",
-            "beginScript",
             "Fight_6_24",
-            "Success"
+            "Success",
+            "click_6",
+            "story-track"
         ]
     },
     "find6_24": {
@@ -174,6 +181,7 @@
         "action": "Click"
     },
     "end6_24": {
+        "pre_delay": 1000,
         "recognition": "TemplateMatch",
         "template": "outside.png",
         "action": "Click",
@@ -184,6 +192,7 @@
     },
     "Success": {
         "recognition": "TemplateMatch",
+        "pre_delay": 1000,
         "template": "actionSuccess.png",
         "action": "Click",
         "target": [
@@ -192,6 +201,6 @@
             589,
             449
         ],
-        "post_delay": 3000
+        "post_delay": 1000
     }
 }
