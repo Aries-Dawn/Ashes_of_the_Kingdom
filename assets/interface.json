@@ -1,6 +1,5 @@
 {
     "name": "MaaRY",
-    "version": "0.0.3",
     "custom_title": "MAA鸢",
     "default_controller": "adb",
     "controller": [
@@ -28,7 +27,7 @@
     "task": [
         {
             "name": "开始6-24",
-            "entry": "story-track",
+            "entry": "6_24fightEntry",
             "doc": "进入游戏主界面即可"
         }
     ]
