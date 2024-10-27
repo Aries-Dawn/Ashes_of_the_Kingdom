@@ -61,13 +61,7 @@
     "Empty": {
         "recognition": "TemplateMatch",
         "template": "buy_power.png",
-        "action": "Click",
-        "target": [
-            655,
-            290,
-            34,
-            35
-        ]
+        "action": "StopTask"
     },
     "beginScript": {
         "recognition": "TemplateMatch",
@@ -77,7 +71,8 @@
         "next": [
             "fight",
             "goIn"
-        ]
+        ],
+        "focus": true
     },
     "fight": {
         "recognition": "TemplateMatch",

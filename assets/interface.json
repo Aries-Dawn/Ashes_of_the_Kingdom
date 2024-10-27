@@ -1,7 +1,4 @@
 {
-    "name": "MaaRY",
-    "custom_title": "MAA鸢",
-    "default_controller": "adb",
     "controller": [
         {
             "name": "安卓端",
@@ -28,7 +25,11 @@
         {
             "name": "开始6-24",
             "entry": "6_24fightEntry",
-            "doc": "进入游戏主界面即可"
+            "doc": "进入游戏主界面即可",
+            "checked": true
         }
-    ]
+    ],
+    "name": "MAARY",
+    "custom_title": "MAA鸢",
+    "default_controller": "adb"
 }
