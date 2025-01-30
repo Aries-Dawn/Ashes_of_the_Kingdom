@@ -25,6 +25,7 @@
         ]
     },
     "find6_24": {
+        "pre_wait_freezes": 1000,
         "enabled": true,
         "recognition": "TemplateMatch",
         "template": "24.png",
@@ -51,10 +52,10 @@
             "Empty"
         ],
         "interrupt": [
-            "find6_24",
             "beginScript",
             "goIn",
-            "Success"
+            "Success",
+            "find6_24"
         ],
         "focus": true
     },
@@ -97,7 +98,8 @@
         "interrupt": [
             "fight_enemy",
             "MovingForward"
-        ]
+        ],
+        "focus": true
     },
     "fight_enemy": {
         "recognition": "TemplateMatch",
@@ -194,6 +196,6 @@
             589,
             449
         ],
-        "post_delay": 1000
+        "post_delay": 3000
     }
 }
