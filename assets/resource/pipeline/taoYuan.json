@@ -1,0 +1,89 @@
+{
+    "桃园挂机入口": {
+        "timeout": 6000000,
+        "next": [
+            "等待出现一个体力",
+            "进入战斗"
+        ]
+    },
+    "等待出现一个体力": {
+        "recognition": "TemplateMatch",
+        "template": "",
+        "roi": [
+            373,
+            37,
+            140,
+            57
+        ],
+        "timeout": 6000000,
+        "next": [
+            "开启桃源村"
+        ]
+    },
+    "开启桃源村": {
+        "recognition": "OCR",
+        "template": "other\\24民居.png",
+        "expected": [
+            "地下窖室",
+            "民居",
+            "书肆"
+        ],
+        "post_delay": 2000,
+        "action": "Click",
+        "timeout": 6000000,
+        "next": [
+            "进入战斗"
+        ]
+    },
+    "进入战斗": {
+        "recognition": "OCR",
+        "expected": [
+            "进入战斗"
+        ],
+        "post_delay": 2000,
+        "roi": [
+            36,
+            616,
+            683,
+            358
+        ],
+        "action": "Click",
+        "timeout": 6000000,
+        "next": [
+            "开始战斗"
+        ]
+    },
+    "开始战斗": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            13,
+            1108,
+            706,
+            171
+        ],
+        "action": "Click",
+        "timeout": 6000000,
+        "next": [
+            "等待桃园战斗结束"
+        ]
+    },
+    "等待桃园战斗结束": {
+        "recognition": "TemplateMatch",
+        "template": "other\\sheng.png",
+        "action": "Click",
+        "target": [
+            250,
+            1114,
+            217,
+            37
+        ],
+        "timeout": 6000000,
+        "next": [
+            "桃园挂机入口"
+        ]
+    },
+    "退出桃园": {}
+}
