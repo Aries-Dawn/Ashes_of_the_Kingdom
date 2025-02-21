@@ -1,0 +1,405 @@
+{
+    "云梦入口": {
+        "next": [
+            "进入云梦",
+            "点击龙虎",
+            "龙虎1"
+        ]
+    },
+    "进入云梦": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\yunmeng.png",
+        "action": "Click",
+        "next": [
+            "点击龙虎"
+        ]
+    },
+    "点击龙虎": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\longhu.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "龙虎1"
+        ]
+    },
+    "龙虎1": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\jinRuTiaoZhan.png",
+        "action": "Click",
+        "roi": [
+            7,
+            682,
+            712,
+            285
+        ],
+        "post_delay": 2000,
+        "next": [
+            "开始龙虎肉鸽流程"
+        ],
+        "interrupt": [
+            "点击龙虎"
+        ]
+    },
+    "开始龙虎肉鸽流程": {
+        "next": [
+            "最终战斗",
+            "选择奖励",
+            "事件",
+            "方士",
+            "阶段战斗",
+            "普通战斗",
+            "精英战斗",
+            "获得奖励云梦",
+            "激活羁绊",
+            "羁绊详情",
+            "战斗结束云梦",
+            "选择降神",
+            "开始战斗云梦"
+        ],
+        "interrupt": []
+    },
+    "选择奖励": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\jiangLi.png",
+        "action": "Click",
+        "threshold": 0.85,
+        "roi": [
+            0,
+            528,
+            720,
+            275
+        ],
+        "next": [
+            "是否在剧情中",
+            "获得奖励云梦"
+        ]
+    },
+    "方士": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "other\\yunmeng\\fangshi.png",
+            "other\\yunmeng\\jitan.png"
+        ],
+        "action": "Click",
+        "threshold": 0.85,
+        "roi": [
+            0,
+            528,
+            720,
+            275
+        ],
+        "next": [
+            "退出献祭等"
+        ]
+    },
+    "事件": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\story.png",
+        "action": "Click",
+        "threshold": 0.85,
+        "roi": [
+            0,
+            528,
+            720,
+            275
+        ],
+        "next": [
+            "是否在剧情中",
+            "获得奖励云梦"
+        ]
+    },
+    "普通战斗": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\zhanDou.png",
+        "action": "Click",
+        "threshold": 0.85,
+        "roi": [
+            0,
+            528,
+            720,
+            275
+        ],
+        "next": [
+            "开始战斗云梦"
+        ]
+    },
+    "精英战斗": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\jinYinzhanDou.png",
+        "action": "Click",
+        "threshold": 0.85,
+        "roi": [
+            0,
+            528,
+            720,
+            275
+        ],
+        "next": [
+            "开始战斗云梦"
+        ]
+    },
+    "阶段战斗": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\jieduanzhanDou.png",
+        "action": "Click",
+        "threshold": 0.85,
+        "roi": [
+            0,
+            528,
+            720,
+            275
+        ],
+        "next": [
+            "开始战斗云梦"
+        ]
+    },
+    "最终战斗": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\zuizhongzhanDou.png",
+        "action": "Click",
+        "threshold": 0.85,
+        "roi": [
+            4,
+            209,
+            715,
+            309
+        ],
+        "next": [
+            "开始战斗云梦"
+        ]
+    },
+    "开始战斗云梦": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "roi": [
+            163,
+            1103,
+            375,
+            134
+        ],
+        "action": "Click",
+        "timeout": 20000000,
+        "next": [
+            "等待战斗结束"
+        ]
+    },
+    "等待战斗结束": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "other\\sheng.png",
+            "other\\bai.png"
+        ],
+        "action": "Click",
+        "target": [
+            259,
+            1116,
+            201,
+            35
+        ],
+        "post_delay": 1500,
+        "next": [
+            "选择降神",
+            "战斗结束云梦",
+            "羁绊详情"
+        ]
+    },
+    "战斗结束云梦": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\chukou.png",
+        "action": "Click",
+        "post_delay": 200,
+        "next": [
+            "退出结算确认"
+        ]
+    },
+    "退出结算确认": {
+        "recognition": "OCR",
+        "expected": [
+            "已通关",
+            "最终地点"
+        ],
+        "roi": [
+            91,
+            547,
+            543,
+            84
+        ],
+        "action": "Click",
+        "target": [
+            399,
+            751,
+            202,
+            39
+        ],
+        "next": [
+            "巫竞结算"
+        ]
+    },
+    "巫竞结算": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\kbaichu.png",
+        "roi": [
+            0,
+            1157,
+            720,
+            122
+        ],
+        "action": "Click",
+        "target": [
+            119,
+            985,
+            571,
+            186
+        ],
+        "next": [
+            "点击龙虎"
+        ]
+    },
+    "选择降神": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "other\\yunmeng\\pstar.png",
+            "other\\yunmeng\\bujing.png",
+            "other\\yunmeng\\gstar.png"
+        ],
+        "threshold": 0.8,
+        "order_by": "Score",
+        "roi": [
+            11,
+            316,
+            708,
+            382
+        ],
+        "action": "Click",
+        "next": [
+            "确认降神"
+        ]
+    },
+    "确认降神": {
+        "action": "Click",
+        "target": [
+            235,
+            1176,
+            251,
+            39
+        ],
+        "post_delay": 1000,
+        "next": [
+            "开始龙虎肉鸽流程"
+        ]
+    },
+    "是否在剧情中": {
+        "recognition": "OCR",
+        "expected": [
+            "进行中"
+        ],
+        "roi": [
+            72,
+            725,
+            623,
+            88
+        ],
+        "action": "Click",
+        "target": [
+            473,
+            955,
+            239,
+            91
+        ],
+        "post_delay": 500,
+        "next": [
+            "是否在剧情中"
+        ],
+        "interrupt": [
+            "获得奖励云梦",
+            "开始龙虎肉鸽流程"
+        ]
+    },
+    "获得奖励云梦": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\kbaichu.png",
+        "action": "Click",
+        "target": [
+            19,
+            709,
+            700,
+            376
+        ],
+        "post_delay": 500,
+        "next": [
+            "获得奖励云梦"
+        ],
+        "interrupt": [
+            "开始龙虎肉鸽流程"
+        ]
+    },
+    "退出献祭等": {
+        "recognition": "OCR",
+        "expected": [
+            "方士",
+            "祭坛"
+        ],
+        "roi": [
+            0,
+            8,
+            720,
+            270
+        ],
+        "action": "Click",
+        "target": [
+            42,
+            48,
+            48,
+            45
+        ],
+        "post_delay": 500,
+        "next": [
+            "开始龙虎肉鸽流程"
+        ]
+    },
+    "激活羁绊": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\jihuojiban.png",
+        "roi": [
+            84,
+            333,
+            496,
+            158
+        ],
+        "action": "Click",
+        "target": [
+            31,
+            237,
+            671,
+            138
+        ],
+        "post_delay": 500,
+        "next": [
+            "开始龙虎肉鸽流程"
+        ]
+    },
+    "羁绊详情": {
+        "recognition": "TemplateMatch",
+        "template": "other\\yunmeng\\jibanxiangxi.png",
+        "roi": [
+            69,
+            167,
+            570,
+            165
+        ],
+        "action": "Click",
+        "target": [
+            9,
+            103,
+            701,
+            62
+        ],
+        "post_delay": 500,
+        "next": [
+            "开始龙虎肉鸽流程"
+        ]
+    }
+}

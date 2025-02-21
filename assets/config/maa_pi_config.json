@@ -1,1 +1,31 @@
-{}
+{
+    "resource": "官服",
+    "controller": {
+        "name": "安卓端"
+    },
+    "adb": {
+        "adb_path": "I:/MuMu Player 12/shell/adb.exe",
+        "address": "127.0.0.1:16544",
+        "config": {
+            "extras": {
+                "mumu": {
+                    "enable": true,
+                    "index": 5,
+                    "path": "I:/MuMu Player 12"
+                }
+            }
+        }
+    },
+    "task": [
+        {
+            "name": "龙虎",
+            "option": [
+                {
+                    "name": "选择云梦战斗难度",
+                    "value": "入云梦"
+                }
+            ],
+            "__vscExpand": true
+        }
+    ]
+}

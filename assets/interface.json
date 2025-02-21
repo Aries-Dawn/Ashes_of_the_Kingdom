@@ -23,12 +23,60 @@
     ],
     "task": [
         {
-            "name": "开始6-24",
-            "entry": "6_24fightEntry",
-            "doc": "进入游戏主界面即可",
-            "checked": true
+            "name": "测试",
+            "entry": "战斗结束云梦"
+        },
+        {
+            "name": "龙虎",
+            "entry": "云梦入口",
+            "option": [
+                "选择云梦战斗难度"
+            ]
         }
     ],
+    "option": {
+        "选择云梦战斗难度": {
+            "cases": [
+                {
+                    "name": "入云梦",
+                    "pipeline_override": {
+                        "点击龙虎": {
+                            "template": "other\\yunmeng\\ruyunmeng.png"
+                        },
+                        "龙虎1": {
+                            "roi": [
+                                2,
+                                957,
+                                716,
+                                275
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "龙虎1",
+                    "pipeline_override": {
+                        "点击龙虎": {
+                            "template": "other\\yunmeng\\longhu.png"
+                        }
+                    }
+                },
+                {
+                    "name": "龙虎2",
+                    "pipeline_override": {
+                        "龙虎1": {
+                            "roi": [
+                                2,
+                                957,
+                                716,
+                                275
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
     "name": "MAARY",
     "custom_title": "MAA鸢",
     "default_controller": "adb"
